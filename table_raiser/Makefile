@@ -1,4 +1,4 @@
-PROJECT = awesomesauce
+PROJECT = table_raiser
 BUILD_DIR = bin
 
 SHARED_DIR = ../my-common-code
@@ -7,7 +7,7 @@ CFILES = main.c
 
 # TODO - you will need to edit these two lines!
 DEVICE=stm32f303vc
-OOCD_FILE = board/stm32f3discovery.cfg
+OOCD_FILE = /usr/share/openocd/scripts/board/stm32f3discovery.cfg
 
 # You shouldn't have to edit anything below here.
 VPATH += $(SHARED_DIR)
