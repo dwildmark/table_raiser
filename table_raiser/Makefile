@@ -3,7 +3,7 @@ BUILD_DIR = bin
 
 SHARED_DIR = ../my-common-code
 CFILES = main.c
-# CFILES += api.c
+CFILES += stdio_uart.c
 
 # TODO - you will need to edit these two lines!
 DEVICE=stm32f303vc
