@@ -43,10 +43,19 @@ add_executable(${PROJECT_NAME}.elf ${SOURCE_FILES})
 
 # Output elf file size
 add_custom_command(
-        TARGET ${PROJECT_NAME}.elf
-        POST_BUILD
-        COMMAND ${ARM_SIZE} ${PROJECT_NAME}_${CMAKE_BUILD_TYPE}.elf
-        WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+    TARGET ${PROJECT_NAME}.elf
+    POST_BUILD
+    COMMAND ${ARM_SIZE} ${PROJECT_NAME}_${CMAKE_BUILD_TYPE}.elf
+    WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+)
+
+add_custom_command(
+    OUTPUT flash_elf
+    COMMAND ../flash.sh ${PROJECT_NAME}_${CMAKE_BUILD_TYPE}.elf
+)
+
+add_custom_target(flash
+                  DEPENDS flash_elf
 )
 
 message("----------------------------------------")
